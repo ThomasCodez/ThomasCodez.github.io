@@ -21,7 +21,7 @@
           .forEach(file => {
             const li = document.createElement("li");
             const link = document.createElement("a");
-            link.href = file.path;
+            link.href = file.path.replace(".md", "");
             link.textContent = file.name.replace(".md", "");
             li.appendChild(link);
             ul.appendChild(li);
