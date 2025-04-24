@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nova Handouts</title>
+</head>
+<body>
+  <h1>Nova Campaign Handouts</h1>
+  <ul id="file-list">Loading...</ul>
+
+  <script>
+    const repo = "ThomasCodez/ThomasCodez.github.io";
+    const folder = "Nova/Handouts";
+
+    fetch(`https://api.github.com/repos/${repo}/contents/${folder}`)
+      .then(res => res.json())
+      .then(files => {
+        const ul = document.getElementById("file-list");
+        ul.innerHTML = "";
+        files
+          .filter(file => file.name.endsWith(".md"))
+          .forEach(file => {
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = file.path;
+            link.textContent = file.name.replace(".md", "");
+            li.appendChild(link);
+            ul.appendChild(li);
+          });
+      })
+      .catch(() => {
+        document.getElementById("file-list").innerText = "Failed to load files.";
+      });
+  </script>
+</body>
+</html>
