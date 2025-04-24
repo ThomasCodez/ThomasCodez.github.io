@@ -10,7 +10,8 @@
   <script>
     const repo = "ThomasCodez/ThomasCodez.github.io";
     const folder = "Nova";
-
+    const siteUrl = "https://thomascodez.github.io"; // Your GitHub Pages base URL
+  
     fetch(`https://api.github.com/repos/${repo}/contents/${folder}`)
       .then(res => res.json())
       .then(files => {
@@ -20,9 +21,13 @@
           .filter(file => file.name.endsWith(".md"))
           .forEach(file => {
             const li = document.createElement("li");
+            const filename = file.name.replace(".md", "");
             const link = document.createElement("a");
-            link.href = file.path.replace(".md", "");
-            link.textContent = file.name.replace(".md", "");
+  
+            // Link to the rendered page (assumes .md is processed by Jekyll)
+            link.href = `${siteUrl}/${folder}/${filename}`;
+            link.textContent = filename;
+  
             li.appendChild(link);
             ul.appendChild(li);
           });
@@ -31,5 +36,6 @@
         document.getElementById("file-list").innerText = "Failed to load files.";
       });
   </script>
+
 </body>
 </html>
