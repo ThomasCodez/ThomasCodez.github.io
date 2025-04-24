@@ -1,3 +1,8 @@
+---
+layout: default
+title: Anywynns Tagebuch
+---
+
 > Ein kleines, penibel zusammengebundenes Büchlein. Die Schirft ist sauber mit Tinte verfasst - Über Zeit scheint die Schrift aber fahriger zu werden
 
 ## 1 August 600ZF
