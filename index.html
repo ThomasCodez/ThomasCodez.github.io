@@ -18,7 +18,7 @@
         const ul = document.getElementById("file-list");
         ul.innerHTML = "";
         files
-          .filter(file => file.name.endsWith(".md"))
+          .filter(file => file.name.endsWith(".md") || file.name.endsWith(".png"))
           .forEach(file => {
             const li = document.createElement("li");
             const filename = file.name.replace(".md", "");
